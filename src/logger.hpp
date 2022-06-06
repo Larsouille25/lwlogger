@@ -1,0 +1,6 @@
+#ifndef LOGGER_HPP_INCLUDED
+#define LOGGER_HPP_INCLUDED
+
+
+
+#endif
