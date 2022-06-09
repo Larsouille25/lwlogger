@@ -1,0 +1,1 @@
+g++ -o test_prog.exe test/test_main.cpp
