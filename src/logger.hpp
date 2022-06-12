@@ -20,6 +20,8 @@ public:
 
     void nice(std::string msg);
 
+    void dbug(std::string msg);
+
 private:
     std::string m_logsDir;
 

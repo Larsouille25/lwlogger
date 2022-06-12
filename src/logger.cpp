@@ -54,3 +54,10 @@ void Logger::nice(std::string msg)
     printTime();
     std::cout << msg << "\033[0m" << std::endl;
 }
+
+void Logger::dbug(std::string msg)
+{
+    std::cout << "\033[0;36m[DBUG] ";
+    printTime();
+    std::cout << msg << "\033[0m" << std::endl;
+}
