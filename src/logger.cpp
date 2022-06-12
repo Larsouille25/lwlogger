@@ -22,42 +22,36 @@ void Logger::printTime()
 
 void Logger::info(std::string msg)
 {
-    std::cout << "\033[0;37m[INFO] ";
     printTime();
-    std::cout << msg << "\033[0m" << std::endl;
+    std::cout << "\033[0;37m[INFO] " << msg << "\033[0m" << std::endl;
 }
 
 void Logger::warn(std::string msg)
 {
-    std::cout << "\033[0;33m[WARN] ";
     printTime();
-    std::cout << msg << "\033[0m" << std::endl;
+    std::cout << "\033[0;33m[WARN] " << msg << "\033[0m" << std::endl;
 }
 
 void Logger::excp(std::string msg)
 {
-    std::cout << "\033[0;31m[EXCP] ";
     printTime();
-    std::cout << msg << "\033[0m" << std::endl;
+    std::cout << "\033[0;31m[EXCP] " << msg << "\033[0m" << std::endl;
 }
 
 void Logger::excp(std::exception e)
 {
-    std::cout << "\033[0;31m[EXCP] ";
     printTime();
-    std::cout << e.what() << "\033[0m" << std::endl;
+    std::cout << "\033[0;31m[EXCP] " << e.what() << "\033[0m" << std::endl;
 }
 
 void Logger::nice(std::string msg)
 {
-    std::cout << "\033[0;32m[NICE] ";
     printTime();
-    std::cout << msg << "\033[0m" << std::endl;
+    std::cout << "\033[0;32m[NICE] " << msg << "\033[0m" << std::endl;
 }
 
 void Logger::dbug(std::string msg)
 {
-    std::cout << "\033[0;36m[DBUG] ";
     printTime();
-    std::cout << msg << "\033[0m" << std::endl;
+    std::cout << "\033[0;36m[DBUG] " << msg << "\033[0m" << std::endl;
 }
