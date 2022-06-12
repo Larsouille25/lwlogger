@@ -6,7 +6,7 @@ Lwlogger is a C++ lightweight logger hence its name. With him you could debug yo
 
 ### Code
 
-Just put the librairie newt to your executable. Include `logger.hpp`, where you want to use it. Or there is a test program you can go see it, if you want more details.
+Just put the librairie and `logger.hpp` next to your executable. Include `logger.hpp`, where you want to use it. Or there is a test program you can go see it, if you want more details.
 
 #### Example :
 ```cpp
