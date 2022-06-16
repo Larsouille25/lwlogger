@@ -4,12 +4,14 @@
 #include <string>
 #include <ostream>
 #include <ctime>
+#include <fstream>
 
 class Logger
 {
 public:
 
     Logger(std::string logsDir);
+    ~Logger();
 
     void info(std::string msg);
 
@@ -23,12 +25,12 @@ public:
     void dbug(std::string msg);
 
 private:
-    std::string m_logsDir;
+    std::ofstream *m_logFile;
 
     std::time_t m_currentTime;
     std::tm *m_localTime;
 
-    void printTime();
+    std::string getTime();
 };
 
 #endif
