@@ -5,10 +5,12 @@
 
 #include "../src/logger.hpp"
 
+using namespace Larsouille;
+
 int main()
 {
     
-    Logger log("logs/");
+    Logger log("logs/", "%Y_%m_%d-%H-%M-%S.log");
 
     log.debug("Debug has been activated !");
 

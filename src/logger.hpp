@@ -6,11 +6,14 @@
 #include <ctime>
 #include <fstream>
 
+namespace Larsouille {
+
 class Logger
 {
 public:
 
     Logger(std::string logsDir);
+    Logger(std::string logsDir, const char* format);
     ~Logger();
 
     void success(std::string msg);
@@ -36,5 +39,7 @@ private:
 
     std::string getTime();
 };
+
+} // namespace Larsouille
 
 #endif

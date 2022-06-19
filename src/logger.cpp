@@ -8,7 +8,12 @@
 #include "logger.hpp"
 
 
-Logger::Logger(std::string logsDir)
+namespace Larsouille {
+
+Logger::Logger(std::string logsDir) : Logger(logsDir, "%Y_%m_%d-%H-%M-%S.log")
+{}
+
+Logger::Logger(std::string logsDir, const char* format)
 {
     char fileName[50];
     m_currentTime = time(NULL);
@@ -16,7 +21,7 @@ Logger::Logger(std::string logsDir)
     time(&m_currentTime);
     m_localTime = localtime(&m_currentTime);
 
-    std::strftime(fileName, 25, "%Y_%m_%d-%H-%M-%S.log", m_localTime); // Format the string with the correct name
+    std::strftime(fileName, 25, format, m_localTime); // Format the string with the correct name
 
     m_logFile = new std::ofstream(logsDir + fileName); // Create the file in the dir and with the correct name
 }
@@ -102,6 +107,8 @@ void Logger::error(std::string msg)
 
 void Logger::fatal(std::string msg)
 {
-    std::cout << getTime() << "\033[101;31m[FATAL] " << msg << "\033[0m" << std::endl;
+    std::cout << getTime() << "\033[101;31m[FATAL]\033[0m \033[1;31m" << msg << "\033[0m" << std::endl;
     *m_logFile << getTime() << "[FATAL] " << msg << std::endl;
 }
+
+} // namespace Larsouille
