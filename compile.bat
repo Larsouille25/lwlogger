@@ -4,17 +4,19 @@ cls
 
 echo Compiling the dll ...
 ::Compile DLL :
-g++ -Wall -shared src/logger.cpp -o lwlogger.dll
+g++ -Wall -shared src/logger.cpp -o builds/lwlogger_v1.0.0-beta.dll
 
 echo Dll compiled !
 
 echo Compiling the test program ...
 ::Compile the test program :
-g++ test/test_main.cpp lwlogger.dll -o test_prog
+g++ test/test_main.cpp builds/lwlogger_v1.0.0-beta.dll -o builds/test_prog
 
 echo Test program compiled !
 
 echo Run the test program ... 
 echo:
 
+cd builds
 test_prog.exe
+cd ..

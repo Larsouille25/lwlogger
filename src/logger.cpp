@@ -34,7 +34,25 @@ std::string Logger::getTime()
     std::stringstream ss;
     std::string date;
 
-    ss << "[" << m_localTime->tm_hour << ":" << m_localTime->tm_min << ":" << m_localTime->tm_sec << "] ";
+    if(m_localTime->tm_hour < 10)
+        ss << "[" << "0" << m_localTime->tm_hour << ":";
+    else
+        ss << "[" << m_localTime->tm_hour << ":";
+
+    
+
+    if(m_localTime->tm_min < 10)
+        ss << "0" << m_localTime->tm_min << ":";
+    else
+        ss << m_localTime->tm_min << ":";
+
+
+
+    if(m_localTime->tm_sec < 10)
+        ss << "0" << m_localTime->tm_sec << "] ";
+    else
+        ss << m_localTime->tm_sec << "] ";
+
     date = ss.str();
 
     return date;
@@ -54,24 +72,36 @@ void Logger::warn(std::string msg)
 
 void Logger::excp(std::string msg)
 {
-    std::cout << getTime() << "\033[0;31m[EXCP] " << msg << "\033[0m" << std::endl;
-    *m_logFile << getTime() << "[EXCP] " << msg << std::endl;
+    std::cout << getTime() << "\033[0;31m[EXCEPTION] " << msg << "\033[0m" << std::endl;
+    *m_logFile << getTime() << "[EXCEPTION] " << msg << std::endl;
 }
 
 void Logger::excp(std::exception e)
 {
-    std::cout << getTime() << "\033[0;31m[EXCP] " << e.what() << "\033[0m" << std::endl;
-    *m_logFile << getTime() << "[WARN] " << e.what() << std::endl;
+    std::cout << getTime() << "\033[0;31m[EXCEPTION] " << e.what() << "\033[0m" << std::endl;
+    *m_logFile << getTime() << "[EXCEPTION] " << e.what() << std::endl;
 }
 
-void Logger::nice(std::string msg)
+void Logger::success(std::string msg)
 {
-    std::cout << getTime() << "\033[0;32m[NICE] " << msg << "\033[0m" << std::endl;
-    *m_logFile << getTime() << "[NICE] " << msg << std::endl;
+    std::cout << getTime() << "\033[0;32m[SUCCESS] " << msg << "\033[0m" << std::endl;
+    *m_logFile << getTime() << "[SUCCESS] " << msg << std::endl;
 }
 
-void Logger::dbug(std::string msg)
+void Logger::debug(std::string msg)
 {
-    std::cout << getTime() << "\033[0;36m[DBUG] " << msg << "\033[0m" << std::endl;
-    *m_logFile << getTime() << "[DBUG] " << msg << std::endl;
+    std::cout << getTime() << "\033[0;36m[DEBUG] " << msg << "\033[0m" << std::endl;
+    *m_logFile << getTime() << "[DEBUG] " << msg << std::endl;
+}
+
+void Logger::error(std::string msg)
+{
+    std::cout << getTime() << "\033[1;31m[ERROR] " << msg << "\033[0m" << std::endl;
+    *m_logFile << getTime() << "[ERROR] " << msg << std::endl;
+}
+
+void Logger::fatal(std::string msg)
+{
+    std::cout << getTime() << "\033[101;31m[FATAL] " << msg << "\033[0m" << std::endl;
+    *m_logFile << getTime() << "[FATAL] " << msg << std::endl;
 }

@@ -1,5 +1,5 @@
-#ifndef LOGGER_HPP_INCLUDED
-#define LOGGER_HPP_INCLUDED
+#ifndef LWLOGGER_LOGGER_HPP
+#define LWLOGGER_LOGGER_HPP
 
 #include <string>
 #include <ostream>
@@ -13,6 +13,10 @@ public:
     Logger(std::string logsDir);
     ~Logger();
 
+    void success(std::string msg);
+
+    void debug(std::string msg);
+
     void info(std::string msg);
 
     void warn(std::string msg);
@@ -20,9 +24,9 @@ public:
     void excp(std::string msg);
     void excp(std::exception e);
 
-    void nice(std::string msg);
+    void error(std::string msg);
 
-    void dbug(std::string msg);
+    void fatal(std::string msg);
 
 private:
     std::ofstream *m_logFile;
