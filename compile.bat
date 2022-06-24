@@ -4,13 +4,13 @@ cls
 
 echo Compiling the dll ...
 ::Compile DLL :
-g++ -Wall -shared src/logger.cpp -o builds/lwlogger_v1.0.0-beta.dll
+g++ -Wall -shared src/logger.cpp -o builds/lwlogger_v1.0.0-rc.dll
 
 echo Dll compiled !
 
 echo Compiling the test program ...
 ::Compile the test program :
-g++ test/test_main.cpp builds/lwlogger_v1.0.0-beta.dll -o builds/test_prog
+g++ test/test_main.cpp builds/lwlogger_v1.0.0-rc.dll -o builds/test_prog
 
 echo Test program compiled !
 
