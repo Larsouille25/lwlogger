@@ -95,10 +95,8 @@ void Logger::success(std::string msg)
 
 void Logger::debug(std::string msg)
 {
-    #ifndef LWLOGGER_DEBUG_MODE
     std::cout << getTime() << "\033[0;36m[DEBUG] " << msg << "\033[0m" << std::endl;
     *m_logFile << getTime() << "[DEBUG] " << msg << std::endl;
-    #endif
 }
 
 void Logger::error(std::string msg)

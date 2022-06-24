@@ -9,13 +9,9 @@ using namespace Larsouille;
 
 int main()
 {
-    
     Logger log("logs/", "%Y_%m_%d-%H-%M-%S.log");
 
-    log.debug("Debug has been activated !");
-
     log.warn("There is a new version of the API, please download it.");
-
 
     log.info("Loading 3D models ...");
     Sleep(5564);

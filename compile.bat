@@ -1,22 +1,40 @@
-@Echo off
+@echo off
 
-cls
+:: t for test the program and r for release the program
+set comp-type=%1 
 
-echo Compiling the dll ...
-::Compile DLL :
-g++ -Wall -shared src/logger.cpp -o builds/lwlogger_v1.0.0-rc.dll
+:: r for run and n for no run
+set schould-start=%2 
 
-echo Dll compiled !
+IF "%1"=="t" IF "%2"=="r" (
+    echo Compiling the TEST Dll ...
 
-echo Compiling the test program ...
-::Compile the test program :
-g++ test/test_main.cpp builds/lwlogger_v1.0.0-rc.dll -o builds/test_prog
+    ::Compile DLL :
+    g++ -Wall -shared src/logger.cpp -o builds/compile_test.dll
 
-echo Test program compiled !
+    echo Dll compiled !
 
-echo Run the test program ... 
-echo:
+    echo Compiling the test program ...
+    ::Compile the test program :
+    g++ test/test_main.cpp builds/compile_test.dll -o builds/test_prog
 
-cd builds
-test_prog.exe
-cd ..
+    echo Test program compiled !
+
+    echo Run the test program ... 
+    echo:
+    echo:
+
+    cd builds
+    test_prog.exe
+    cd ..
+) 
+
+IF NOT "%1"=="t" IF NOT "%2"=="r" (
+    echo Compiling the Dll ...
+
+    ::Compile DLL :
+    g++ -Wall -shared src/logger.cpp -o builds/lwlogger_v1.0.0-rc.dll
+
+    echo Dll compiled !
+
+) 
