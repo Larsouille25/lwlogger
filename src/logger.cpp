@@ -5,7 +5,7 @@
 #include <fstream>
 #include <sstream>
 
-#include "logger.hpp"
+#include <lwlogger/logger.hpp>
 
 
 namespace Larsouille {
