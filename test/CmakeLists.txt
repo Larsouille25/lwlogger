@@ -1,0 +1,26 @@
+cmake_minimum_required(VERSION 3.0.0)
+
+#Project config
+project(lwloggerTest)
+set(EXECUTABLE_OUTPUT_PATH bin/${CMAKE_BUILD_TYPE})
+
+#Include lwlogger lib
+include_directories(../include)
+link_directories(../lib/${CMAKE_BUILD_TYPE})
+
+#Configuring the executable
+file(
+        GLOB_RECURSE
+        source_files
+        src/*
+)
+add_executable(
+        lwloggerTest
+        ${source_files}
+)
+
+#Configuring the link editor
+target_link_libraries(
+        lwloggerTest
+        lwlogger
+)

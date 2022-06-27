@@ -1,5 +1,3 @@
-lwlogger.dll
-test_prog.exe
 todo
-logs/*
-builds/*
+build/*
+.vscode/*
