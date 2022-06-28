@@ -16,20 +16,22 @@ public:
     Logger(std::string logsDir, const char* format);
     ~Logger();
 
-    void success(std::string msg);
+    void success(std::string msg, ...);
 
-    void debug(std::string msg);
+    void debug(std::string msg, ...);
 
-    void info(std::string msg);
+    void info(std::string msg, ...);
 
-    void warn(std::string msg);
+    void warn(std::string msg, ...);
 
-    void excp(std::string msg);
+    void excp(std::string msg, ...);
     void excp(std::exception e);
 
-    void error(std::string msg);
+    void error(std::string msg, ...);
 
-    void fatal(std::string msg);
+    void fatal(std::string msg, ...);
+
+    static char *convert(unsigned int num, int base); 
 
 private:
     std::ofstream *m_logFile;
