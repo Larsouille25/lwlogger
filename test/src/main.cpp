@@ -5,7 +5,7 @@ int main()
 {
     Larsouille::Logger logger("logs/");
 
-    logger.success("The library work very well!");
+    logger.success("The library work very well!", 0);
 
     return 0;
 }
